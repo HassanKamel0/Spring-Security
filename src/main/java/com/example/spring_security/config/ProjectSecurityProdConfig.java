@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.password.HaveIBeenPwnedRe
 public class ProjectSecurityProdConfig {
     @Bean
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
-//        http.authoriz eHttpRequests((requests) -> {((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();});
+//        http.authorizeHttpRequests((requests) -> {((AuthorizeHttpRequestsConfigurer.AuthorizedUrl)requests.anyRequest()).authenticated();});
         http.sessionManagement(smc->smc//.sessionFixation(sfc->sfc.newSession())
                 .invalidSessionUrl("/invalidSession").maximumSessions(1).maxSessionsPreventsLogin(true))
                 .requiresChannel(rcc->rcc.anyRequest().requiresSecure()) //Only HTTPS
